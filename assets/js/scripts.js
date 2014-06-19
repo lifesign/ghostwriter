@@ -31,6 +31,15 @@ jQuery(function($) {
     /* ============================================================ */
     /* Scroll To Top */
     /* ============================================================ */
+    $("#back-top").hide();
+
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            $('#back-top').fadeIn();
+        } else {
+            $('#back-top').fadeOut();
+        }
+    });
 
     $('.js-jump-top').on('click', function(e) {
         e.preventDefault();
