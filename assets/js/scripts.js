@@ -1,5 +1,27 @@
 jQuery(function($) {
+    /*多说*/
+    var  duoshuoTrans= window.location.pathname;
+    $('.ds-thread').attr('data-url','http://lifesign.me'+duoshuoTrans);
 
+    /*模拟键盘上下滚动*/
+    document.onkeydown = checkKey;
+
+    function checkKey(e) {
+        e = e || window.event;
+        if (e.keyCode == '74') {
+            $('html,body').stop();
+            $('html,body').animate({
+                scrollTop: $(window).stop().scrollTop() + 200
+            },'fast')
+        }
+        else if (e.keyCode == '75') {
+            $('html,body').stop();
+            $('html,body').animate({
+                scrollTop: $(window).stop().scrollTop() - 200
+            },'fast')
+        }
+
+    }
     /* ============================================================ */
     /* Responsive Videos */
     /* ============================================================ */
