@@ -151,4 +151,23 @@ jQuery(function($) {
         }
     });
 
+    consoleTrick();
+    /* simple console trick */
+    function consoleTrick() {
+        if (window.console && window.console.log) {
+            console.log('骚年 送你个妹子看看吧~');
+            var picNo = getRandomInt(1, 16);
+            console.log("Print out the " + picNo + "th image.");
+            console.log("%c", "padding:165px 150px;line-height:350px;background:url('http://wayouliu.duapp.com/img/tagsImg/" + picNo + ".jpg') no-repeat;");
+            console.log("%c 试试F5刷新", "color:green;");
+        } else {
+            return;
+        }
+    }
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
 });
