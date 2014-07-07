@@ -107,6 +107,9 @@ jQuery(function($) {
 
                 NProgress.done();
 
+                //rerender highlight syntax
+                Prism.highlightAll();
+
                 loading = false;
                 showIndex = false;
             });
@@ -160,19 +163,20 @@ jQuery(function($) {
         }
     });
 
-    consoleTrick();
-    /* simple console trick */
-    function consoleTrick() {
-        if (window.console && window.console.log) {
-            console.log('骚年 送你个妹子看看吧~');
+    //console trick
+    (function(a) {
+        if (!a) return;
+        var msg = "\u6b22\u8fce\u6765\u5230\u6211\u7684\u535a\u5ba2~(@\u4e91\u88ad)";
+        if (window.chrome) {
+            a.log('\u9a9a\u5e74 \u9001\u4f60\u4e2a\u59b9\u5b50\u770b\u770b\u5427~');
             var picNo = getRandomInt(1, 16);
-            console.log("Print out the " + picNo + "th image.");
-            console.log("%c", "padding:165px 150px;line-height:350px;background:url('http://wayouliu.duapp.com/img/tagsImg/" + picNo + ".jpg') no-repeat;");
-            console.log("%c 试试F5刷新", "color:green;");
+            a.log("Print out the " + picNo + "th image.");
+            a.log("%c", "padding:165px 150px;line-height:350px;background:url('http://wayouliu.duapp.com/img/tagsImg/" + picNo + ".jpg') no-repeat;");
+            a.log("%c \u8bd5\u8bd5F5\u5237\u65b0", "color:green;");
         } else {
-            return;
+            a.log(msg);
         }
-    }
+    })(top.console);
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
